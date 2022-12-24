@@ -1,0 +1,11 @@
+0 silly argv {
+0 silly argv   _: [ 'init' ],
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': 'C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath C:\Users\user\Dropbox\Dev\Typescript\react-ts-portfolio\jsnote
+3 verbose init skipping validations
+4 verbose init skipping preparations
+5 info Creating package.json
+6 error

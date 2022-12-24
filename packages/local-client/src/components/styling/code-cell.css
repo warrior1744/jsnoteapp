@@ -1,0 +1,29 @@
+.progress-wrapper {
+    height: 100%;
+    flex-grow: 1;
+    background-color: #fff; /*same with the preview background*/
+}
+
+.progress-cover {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1.2rem;
+    animation: fadeIn 0.5s;
+}
+
+/* if the progress (bundling) is less than .25s and less, 
+   the progress bar won't appears*/
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

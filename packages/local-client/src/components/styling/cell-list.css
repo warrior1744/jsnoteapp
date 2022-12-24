@@ -1,0 +1,8 @@
+.cell-list {
+  margin: 0 25px 50vh;
+}
+
+/*pre allocate free space when draggin the bottom cell*/
+.react-draggable-transparent-selection .cell-list {
+  margin-bottom: 100vh;
+}
