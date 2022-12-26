@@ -17,12 +17,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jsnoteapp/local-client": "^1.0.0-alpha.0"
+    "@jsnoteapp/local-client": "^0.1.0"
   },
   "devDependencies": {
     "@jsnoteapp/local-api": "^1.0.0-alpha.0",
-    "@types/node": "^18.11.17",
     "commander": "^9.4.1",
+    "@types/node": "^18.11.17",
     "esbuild": "0.8.26",
     "typescript": "^4.9.4"
   }

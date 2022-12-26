@@ -1,7 +1,7 @@
 import express from 'express'
 import fs from 'fs/promises'
 import path from 'path'
-
+import defaultCells from '../default'
 
 type CellTypes = 'code' | 'text'
 interface Cell {
@@ -30,9 +30,9 @@ export const createCellsRouter = (filename: string , dir: string) => {
         }catch(err){
             if(isLocalApiError(err)){
                 if(err.code === 'ENOENT'){
-                    console.log(`${err.code} file does not exist, creating a default data`)
-                    await fs.writeFile(fullPath, '[]', 'utf-8')
-                    res.send([])
+                    console.log(`${err.code}! file does not exist, creating a default data`)
+                    await fs.writeFile(fullPath, defaultCells , 'utf-8')
+                    res.send(defaultCells) 
                 }
             }else{
                 throw err
@@ -42,6 +42,8 @@ export const createCellsRouter = (filename: string , dir: string) => {
     
     router.post('/cells', async (req, res) => {
         const { cells }: {cells :Cell[]} = req.body
+        
+
         await fs.writeFile(fullPath, JSON.stringify(cells), 'utf-8')
         res.send({ status: 'ok'})
     })

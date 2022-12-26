@@ -59,7 +59,6 @@ const Preview = ({ code, err }: PreviewProps) => {
         ref={iframe}
         srcDoc={html}
         sandbox="allow-scripts"
-        src="/test.html"
       />
       {err && <div className="preview-error">{err}</div>}
     </div>

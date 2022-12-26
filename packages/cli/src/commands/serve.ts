@@ -1,5 +1,6 @@
 import path from "path";
 import { Command } from "commander";
+// import { serve } from "@jsnoteapp/local-api";
 import { serve } from "@jsnoteapp/local-api";
 
 interface LocalApiError {
@@ -22,8 +23,8 @@ export const serveCommand = new Command()
         const dir = path.join(process.cwd(), path.dirname(filename));
         await serve(
           parseInt(options.port),
-          path.basename(filename),
-          dir,
+          path.basename(filename), //filename
+          dir,  //dir
           !isProduction
         );
         console.log(
@@ -32,7 +33,7 @@ export const serveCommand = new Command()
       } catch (err) {
         if (isLocalApiError(err)) {
           if (err.code === "EADDRINUSE") {
-            console.error("Port is in use. Try running on a different port.");
+            console.error(`Unable to proceed... \n  Port ${options.port} is in use. Try running on a different port.`);
           }
         } else if (err instanceof Error) {
           console.log("Heres the problem ", err.message);

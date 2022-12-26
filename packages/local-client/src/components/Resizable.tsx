@@ -1,13 +1,16 @@
 import "./styling/resizable.css";
 import { ResizableBox, ResizableBoxProps } from "react-resizable";
 import React, { useEffect, useState } from "react";
+import { Cell } from "../state";
+import { code } from "@uiw/react-md-editor/lib/cjs/commands";
 
 interface ResizableProps {
   direction: "horizontal" | "vertical";
+  cell: Cell; //calculate content lines for resizable height
   children?: React.ReactNode;
 }
 
-const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
+const Resizable: React.FC<ResizableProps> = ({ direction, children, cell }) => {
   let resizableProps: ResizableBoxProps;
 
   //change states whenever the browser window resizes
@@ -15,7 +18,10 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   const [innerHeight, setInnerHeight] = useState<number>(window.innerHeight);
   const [width, setWidth] = useState<number>(window.innerWidth * 0.75);
   const [height, setHeight] = useState<number>(window.innerHeight * 0.25);
+
   useEffect(() => {
+    // const codeHeight = cell.content.split(/\r\n|\r|\n/).length
+    // setHeight((window.innerHeight * 0.25) * (1+(codeHeight*0.01)))
     const resizeListener = () => {
       const timer = setTimeout(() => {
         setInnerWidth(window.innerWidth);
@@ -38,7 +44,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
     return () => {
       window.removeEventListener("resize", resizeListener);
     };
-  }, [width, height]);
+  }, [width, height, cell.content]);
 
   //props for ResizableBox
   if (direction === "horizontal") {

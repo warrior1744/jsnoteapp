@@ -37,7 +37,7 @@ const CodeCell = ({ cell }: CodeCellProps) => {
   }, [cumulativeCode, cell.id, createBundle]);
 
   return (
-    <Resizable direction="vertical">
+    <Resizable direction="vertical" cell={cell}>
       <div
         style={{
           height: "calc(100% - 10px)",
@@ -45,7 +45,7 @@ const CodeCell = ({ cell }: CodeCellProps) => {
           flexDirection: "row",
         }}
       >
-        <Resizable direction="horizontal">
+        <Resizable direction="horizontal" cell={cell}>
           <CodeEditor
             initialValue={cell.content}
             onChange={(value) => updateCell(cell.id, value)}
