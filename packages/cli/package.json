@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jsnoteapp/local-client": "^0.1.0"
+    "@jsnoteapp/local-client": "^1.1.0"
   },
   "devDependencies": {
     "@jsnoteapp/local-api": "^1.1.0",
